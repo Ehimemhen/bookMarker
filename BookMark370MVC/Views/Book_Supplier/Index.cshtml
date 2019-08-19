@@ -1,0 +1,82 @@
+﻿@model IEnumerable<BookMark370MVC.Models.Book_Supplier>
+
+@{
+    ViewBag.Title = "Index";
+}
+<h2 align="center"> Book Suppliers</h2>
+
+<h2>Index</h2>
+
+<p>
+    @using (Html.BeginForm("Index", "Book_Supplier", FormMethod.Get))
+    {
+
+        <b>SearchBy:</b> @Html.RadioButton("searchBy", "Name", true) <text>Name</text>
+        @Html.RadioButton("searchBy", "Surname") <text>Surname</text>
+        @Html.RadioButton("searchBy", "Email") <text>Email</text>
+        <br />
+
+        
+        @Html.TextBox("search") <input type="submit" value="Search" />
+
+        //if (Search == "")
+        //{
+
+        //}
+    }
+
+</p>
+
+<p>
+    @Html.ActionLink("View Book Requests", "Index", "Book_Request")
+</p>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.BookSupplier_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BookSupplier_Surname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BookSupplier_Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BookSupplier_Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BookSupplier_Type)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.BookSupplier_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BookSupplier_Surname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BookSupplier_Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BookSupplier_Address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BookSupplier_Type)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.BookSupplier_ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.BookSupplier_ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.BookSupplier_ID })
+        </td>
+    </tr>
+}
+
+</table>

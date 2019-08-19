@@ -1,0 +1,52 @@
+﻿
+
+
+<h2 align="center"> Customers</h2>
+
+<div class="searchDiv">
+    <form id="search_form">
+        <fieldset>
+            <legend>Search Customer: </legend>
+            <div class="row">
+                <div class="col-sm-6">
+                    <label for="search_criteria_1" class="control-label">Search Criteria: </label>
+                    <input type="text" class="form-control" id="search_criteria_1" placeholder="Search Criteria" title="Enter the Customer's details to Search" data-toggle="tooltip" data-placement="bottom" />
+                </div>
+                <div class="col-sm-6">
+                    <label for="search_category_1">Search By: </label>
+                    <select class="form-control" id="search_category_1" title="Select how to search Customer" data-toggle="tooltip" data-placement="bottom">
+                        <option value="All">All</option>
+                        <option value="Name">Name</option>
+                        <option value="Email">Email</option>
+                        <option value="ContactNumber">Contact Number</option>
+                    </select>
+                </div>
+            </div>
+            <br />
+            @*<div class="row">
+                    <div class="col-sm-6">
+                        <label for="optradio">Search Method: </label>
+                        <div class="radio">
+                            <label title="Select a search method" data-toggle="tooltip" data-placement="right"><input type="radio" value="Exact" name="optradio" checked>Exact</label>
+                        </div>
+                        <div class="radio">
+                            <label title="Select a search method" data-toggle="tooltip" data-placement="right"><input type="radio" value="Contains" name="optradio">Contains</label>
+                        </div>
+                    </div>
+                </div>*@
+
+        </fieldset>
+        <div class="row">
+            <div class="col-sm-4">
+                <button id="submitSearch" onclick=" return Search()" class="searchButton" title="Click here to search for the employee" data-toggle="tooltip" data-placement="right"><i class="fa fa-search" aria-hidden="true"></i> Search</button>
+            </div>
+            <div class="col-sm-4">
+            </div>
+            <div class="col-sm-4">
+                <button id="clearSearch" onclick="return clearCriteria()" class="searchButton" title="Click here to clear the search details" data-toggle="tooltip" data-placement="left"><i class="fa fa-refresh" aria-hidden="true"></i> Clear Criteria</button>
+            </div>
+        </div>
+
+    </form>
+</div>
+

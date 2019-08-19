@@ -1,0 +1,109 @@
+﻿@model IEnumerable<BookMark370MVC.Models.Employee>
+
+@{
+    ViewBag.Title = "Index";
+}
+<h2 align="center"> Employees</h2>
+
+<h2>Index</h2>
+
+<p>
+    @using (Html.BeginForm("Index", "Employees", FormMethod.Get))
+    {
+        
+        <b>SearchBy:</b> @Html.RadioButton("searchBy", "Name", true) <text>Name</text>
+        @Html.RadioButton("searchBy", "Surname", true) <text>Surname</text>
+        @Html.RadioButton("searchBy", "Phone") <text>Phone</text>
+        @Html.RadioButton("searchBy", "Email") <text>Email</text>
+        @*@Html.RadioButton("searchBy", "ID_Number", true) <text>ID Number</text>*@
+        <br />
+        @Html.TextBox("search") <input type="submit" value="Search" />
+    }
+
+</p>
+
+
+<p>
+    @Html.ActionLink("View All Employees", "Index")
+</p>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Employee_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Employee_Surname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Employee_Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Emp_Phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Emp_Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ID_Number)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ImageData)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Employee_Gender.Gender_Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Employee_Title.Title_Description)
+        </th>
+        @*<th>
+                @Html.DisplayNameFor(model => model.User.UserName)
+            </th>*@
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Employee_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Employee_Surname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Employee_Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Emp_Phone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Emp_Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ID_Number)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ImageData)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Employee_Gender.Gender_Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Employee_Title.Title_Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.User.UserName)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Employee_ID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Employee_ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Employee_ID })
+            </td>
+        </tr>
+    }
+
+</table>
+

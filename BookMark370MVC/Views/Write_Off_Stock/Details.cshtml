@@ -1,0 +1,26 @@
+﻿@model BookMark370MVC.Models.Write_Off_Stock
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Write_Off_Stock</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Inventory.Inventory_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Inventory.Inventory_Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Write_Off_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

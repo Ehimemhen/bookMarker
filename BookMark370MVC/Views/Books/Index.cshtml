@@ -1,0 +1,75 @@
+﻿@model IEnumerable<BookMark370MVC.Models.Book>
+
+@{
+    ViewBag.Title = "Index";
+}
+<br />
+<br />
+<br />
+<h2 align="center"> Prospective Books</h2>
+
+<h2>Index</h2>
+
+<p>
+    @using (Html.BeginForm("Index", "Books", FormMethod.Get))
+    {
+        <b>SearchBy:</b> @Html.RadioButton("searchBy", "BookTitle", true) <text>Book Title</text>
+        @Html.RadioButton("searchBy", "BookAuthor") <text>Book Author</text>
+        @Html.RadioButton("searchBy", "ISBN") <text>ISBN</text>
+        <br />
+        @Html.TextBox("search") <input type="submit" value="Search" />
+    }
+
+</p>
+<p>
+    @Html.ActionLink("View All Prospective Books", "Index")
+</p>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Book_Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Book_Author)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ISBN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Book_Edition)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Book_Status.BookStatus_Description)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Book_Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Book_Author)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ISBN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Book_Edition)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Book_Status.BookStatus_Description)
+        </td>
+        <td>
+            @Html.ActionLink("Maintain Prospective Book", "Edit", new { id=item.Book_ID }) |
+            @Html.ActionLink("View Prospective Book", "Details", new { id=item.Book_ID }) |
+            @Html.ActionLink("Cancel Prospective Book", "Delete", new { id=item.Book_ID })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,72 @@
+﻿@model IEnumerable<BookMark370MVC.Models.Prospective_Book>
+
+@{
+    ViewBag.Title = "Index";
+}
+<br />
+<br />
+<br />
+
+<h2 align="center"> Prospective Books Management</h2>
+
+<h2>Index</h2>
+
+@*<h2 align="center"> Prospective Books</h2>*@
+
+<p>
+    @using (Html.BeginForm("Index", "Prospective_Book", FormMethod.Get))
+    {
+        <b>SearchBy:</b> @Html.RadioButton("searchBy", "Date", true) <text>Date</text>
+        @Html.RadioButton("searchBy", "Name") <text>Name</text>
+        @*@Html.RadioButton("searchBy", "Email") <text>Email</text>*@
+        <br />
+        @Html.TextBox("search") <input type="submit" value="Search" />
+    }
+
+</p>
+
+<p>
+    @Html.ActionLink("View Prospective Book Suppliers", "Index", "Book_Supplier")
+</p>
+
+
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<p>
+    @Html.ActionLink("Add Book?", "Index", "Books")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ProsBook_Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Book_Supplier.BookSupplier_Name)
+        </th>
+        <th></th>
+    </tr>
+
+
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProsBook_Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Book_Supplier.BookSupplier_Name)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ProsBook_ID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ProsBook_ID }) |
+                @Html.ActionLink("Cancel Prospective Book/Make Purchase", "Delete", new { id = item.ProsBook_ID })
+            </td>
+        </tr>
+    }
+
+</table>
+
